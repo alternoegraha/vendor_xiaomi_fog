@@ -496,6 +496,15 @@ PRODUCT_PACKAGES += \
     vulkan.adreno \
     libC2D2 \
     libCB \
+    libOmxAacDec \
+    libOmxAlacDec \
+    libOmxAmrDec \
+    libOmxAmrwbplusDec \
+    libOmxApeDec \
+    libOmxEvrcDec \
+    libOmxG711Dec \
+    libOmxQcelp13Dec \
+    libOmxWmaDec \
     libOpenCL \
     libVkLayer_q3dtools \
     libadreno_utils \
@@ -532,6 +541,7 @@ PRODUCT_PACKAGES += \
     audio.primary.bengal \
     vendor.qti.hardware.bluetooth_audio@2.0-impl \
     vendor.qti.hardware.bluetooth_audio@2.1-impl \
+    libOmxDsdDec \
     liba2dpoffload \
     libacdb-fts \
     libacdbloader \
@@ -550,6 +560,7 @@ PRODUCT_PACKAGES += \
     libcirrusspkrprot \
     libcomprcapture \
     libdrc \
+    libdsd2pcm \
     libexthwplugin \
     libfastcrc \
     libgcs-calwrapper \
@@ -1023,8 +1034,6 @@ PRODUCT_PACKAGES += \
     misound_karaokemix_res \
     misound_res_headphone \
     misound_res_spk \
-    libmmosal \
-    libmmparser_lite \
     com.qualcomm.qti.dpm.api@1.0 \
     fm_helium \
     lib-imsvideocodec \
