@@ -9256,7 +9256,7 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/vendor.silead.hardware.fingerprintext@1.0.so"],
-			shared_libs: ["liblog", "libutils", "libcutils", "libc++", "libc", "libm", "libdl", ],
+			shared_libs: ["libhidlbase", "liblog", "libutils", "libcutils", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
@@ -10159,22 +10159,6 @@ prebuilt_etc_xml {
 	filename_from_src: true,
 	sub_dir: "vintf/manifest",
 	soc_specific: true,
-}
-
-cc_prebuilt_binary {
-	name: "chargeonlymode",
-	owner: "xiaomi",
-	target: {
-		android_arm64: {
-			srcs: ["proprietary/bin/chargeonlymode"],
-			shared_libs: ["libbase", "libcutils", "libhidlbase", "liblog", "libutils", "libpng", "android.hardware.health@2.0", "android.hardware.health@2.1", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
-	compile_multilib: "64",
-	strip: {
-		none: true,
-	},
-	prefer: true,
 }
 
 cc_prebuilt_binary {

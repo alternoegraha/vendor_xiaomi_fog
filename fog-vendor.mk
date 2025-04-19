@@ -1094,7 +1094,6 @@ PRODUCT_PACKAGES += \
     manifest_android.hardware.drm@1.3-service.widevine.xml \
     vendor.qti.gnss@4.0-service.xml \
     vendor.qti.hardware.servicetracker@1.2-service.xml \
-    chargeonlymode \
     ATFWD-daemon \
     adpl \
     adsprpcd \
