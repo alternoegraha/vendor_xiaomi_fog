@@ -191,6 +191,7 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/fog/proprietary/vendor/etc/init/vendor.qti.hardware.servicetracker@1.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.hardware.servicetracker@1.2-service.rc \
     vendor/xiaomi/fog/proprietary/vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.hardware.soter@1.0-service.rc \
     vendor/xiaomi/fog/proprietary/vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc \
+    vendor/xiaomi/fog/proprietary/vendor/etc/init/vendor.qti.media.c2@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.media.c2@1.0-service.rc \
     vendor/xiaomi/fog/proprietary/vendor/etc/init/vendor.qti.qspmhal@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.qspmhal@1.0-service.rc \
     vendor/xiaomi/fog/proprietary/vendor/etc/init/vendor.qti.rmt_storage.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.rmt_storage.rc \
     vendor/xiaomi/fog/proprietary/vendor/etc/init/vendor.qti.tftp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.tftp.rc \
@@ -207,6 +208,12 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/fog/proprietary/vendor/etc/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf \
     vendor/xiaomi/fog/proprietary/vendor/etc/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config \
     vendor/xiaomi/fog/proprietary/vendor/etc/seccomp_policy/atfwd@2.0.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/atfwd@2.0.policy \
+    vendor/xiaomi/fog/proprietary/vendor/etc/seccomp_policy/codec2.vendor.base-arm.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/codec2.vendor.base-arm.policy \
+    vendor/xiaomi/fog/proprietary/vendor/etc/seccomp_policy/codec2.vendor.base-arm64.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/codec2.vendor.base-arm64.policy \
+    vendor/xiaomi/fog/proprietary/vendor/etc/seccomp_policy/codec2.vendor.base.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/codec2.vendor.base.policy \
+    vendor/xiaomi/fog/proprietary/vendor/etc/seccomp_policy/codec2.vendor.ext-arm.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/codec2.vendor.ext-arm.policy \
+    vendor/xiaomi/fog/proprietary/vendor/etc/seccomp_policy/codec2.vendor.ext-arm64.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/codec2.vendor.ext-arm64.policy \
+    vendor/xiaomi/fog/proprietary/vendor/etc/seccomp_policy/codec2.vendor.ext.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/codec2.vendor.ext.policy \
     vendor/xiaomi/fog/proprietary/vendor/etc/seccomp_policy/gnss@2.0-base.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/gnss@2.0-base.policy \
     vendor/xiaomi/fog/proprietary/vendor/etc/seccomp_policy/gnss@2.0-xtra-daemon.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/gnss@2.0-xtra-daemon.policy \
     vendor/xiaomi/fog/proprietary/vendor/etc/seccomp_policy/gnss@2.0-xtwifi-client.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/gnss@2.0-xtwifi-client.policy \
@@ -512,7 +519,6 @@ PRODUCT_PACKAGES += \
     libllvm-glnext \
     libllvm-qcom \
     libmdsprpc \
-    libmmosal_vendor \
     libscveCommon \
     libscveCommon_stub \
     libscveObjectSegmentation \
@@ -522,9 +528,9 @@ PRODUCT_PACKAGES += \
     libsdsprpc \
     libsysmon_cdsp_skel \
     libthermalclient \
+    libvpphcp \
+    libvpphvx \
     vendor.qti.hardware.dsp@1.0 \
-    vendor.qti.hardware.vpp@1.1 \
-    vendor.qti.hardware.vpp@1.2 \
     btaudio_offload_if \
     audio.bluetooth_qti.default \
     audio.primary.bengal \
@@ -558,7 +564,14 @@ PRODUCT_PACKAGES += \
     libhdmipassthru \
     libhfp \
     liblistensoundmodel2 \
+    libmmosal_vendor \
     libmulawdec \
+    libqcodec2_base \
+    libqcodec2_basecodec \
+    libqcodec2_core \
+    libqcodec2_platform \
+    libqcodec2_utils \
+    libqcodec2_v4l2codec \
     libqtigef \
     libsmwrapper \
     libsndmonitor \
@@ -981,6 +994,8 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.slmadapter@1.0 \
     vendor.qti.hardware.soter@1.0 \
     vendor.qti.hardware.tui_comm@1.0 \
+    vendor.qti.hardware.vpp@1.1 \
+    vendor.qti.hardware.vpp@1.2 \
     vendor.qti.ims.callcapability@1.0 \
     vendor.qti.ims.callinfo@1.0 \
     vendor.qti.ims.factory@1.0 \
@@ -996,29 +1011,27 @@ PRODUCT_PACKAGES += \
     vendor.qti.qspmhal@1.0-impl \
     vendor.qti.qspmhal@1.0 \
     vendor.silead.hardware.fingerprintext@1.0 \
-    vendor_lib_rfsa_adsp_capi_v2_aptX_CLHDADV_Encoder_so \
-    vendor_lib_rfsa_adsp_capi_v2_aptX_CLHDAD_Speech_Decoder_so \
-    vendor_lib_rfsa_adsp_capi_v2_aptX_Classic_so \
-    vendor_lib_rfsa_adsp_capi_v2_aptX_HD_so \
-    vendor_lib_rfsa_adsp_libadsp_jpege_skel_so \
-    vendor_lib_rfsa_adsp_libapps_mem_heap_so \
-    vendor_lib_rfsa_adsp_libbitml_nsp_skel_so \
-    vendor_lib_rfsa_adsp_libcamera_nn_skel_so \
-    vendor_lib_rfsa_adsp_libdspCV_skel_so \
-    vendor_lib_rfsa_adsp_libdsp_streamer_binning_so \
-    vendor_lib_rfsa_adsp_libfastcvadsp_so \
-    vendor_lib_rfsa_adsp_libfastcvdsp_skel_so \
-    vendor_lib_rfsa_adsp_libmctfengine_skel_so \
-    vendor_lib_rfsa_adsp_libscveObjectSegmentation_skel_so \
-    vendor_lib_rfsa_adsp_libscveT2T_skel_so \
-    vendor_lib_rfsa_adsp_libsns_device_mode_skel_so \
-    vendor_lib_rfsa_adsp_libsns_low_lat_stream_skel_so \
-    vendor_lib_rfsa_adsp_misound_karaoke_res_bin \
-    vendor_lib_rfsa_adsp_misound_karaokemix_res_bin \
-    vendor_lib_rfsa_adsp_misound_res_headphone_bin \
-    vendor_lib_rfsa_adsp_misound_res_spk_bin \
-    libmmosal \
-    libmmparser_lite \
+    capi_v2_aptX_CLHDADV_Encoder \
+    capi_v2_aptX_CLHDAD_Speech_Decoder \
+    capi_v2_aptX_Classic \
+    capi_v2_aptX_HD \
+    libadsp_jpege_skel \
+    libapps_mem_heap \
+    libbitml_nsp_skel \
+    libcamera_nn_skel \
+    libdspCV_skel \
+    libdsp_streamer_binning \
+    libfastcvadsp \
+    libfastcvdsp_skel \
+    libmctfengine_skel \
+    libscveObjectSegmentation_skel \
+    libscveT2T_skel \
+    libsns_device_mode_skel \
+    libsns_low_lat_stream_skel \
+    misound_karaoke_res \
+    misound_karaokemix_res \
+    misound_res_headphone \
+    misound_res_spk \
     com.qualcomm.qti.dpm.api@1.0 \
     fm_helium \
     lib-imsvideocodec \
@@ -1070,6 +1083,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.ims.rcsuce-V1.2-java \
     android.hardware.gnss@2.1-service-qti.xml \
     android.hardware.keymaster@4.1-service-default-qti.xml \
+    c2_manifest_vendor.xml \
     manifest_android.hardware.drm@1.3-service.widevine.xml \
     vendor.qti.gnss@4.0-service.xml \
     vendor.qti.hardware.servicetracker@1.2-service.xml \
@@ -1100,6 +1114,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.servicetracker@1.2-service \
     vendor.qti.hardware.soter@1.0-service \
     vendor.qti.hardware.tui_comm@1.0-service-qti \
+    vendor.qti.media.c2@1.0-service \
     vendor.silead.hardware.fingerprintext@1.0-service \
     ims_rtp_daemon \
     imsdatadaemon \
